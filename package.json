@@ -11,7 +11,8 @@
   },
   "dependencies": {
     "@clerk/nextjs": "^4.20.0",
-    "@prisma/client": "^4.15.0",
+    "@langchain/openai": "^0.0.12",
+    "@prisma/client": "^5.8.1",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^14.0.0",
     "@types/node": "20.3.0",
@@ -22,8 +23,8 @@
     "eslint": "8.42.0",
     "eslint-config-next": "13.4.5",
     "jsdom": "^22.1.0",
-    "langchain": "^0.0.92",
-    "next": "13.4.5",
+    "langchain": "^0.1.5",
+    "next": "^14.1.0",
     "postcss": "8.4.24",
     "react": "18.2.0",
     "react-autosave": "^0.4.2",
@@ -37,6 +38,6 @@
     "zod": "^3.21.4"
   },
   "devDependencies": {
-    "prisma": "^4.15.0"
+    "prisma": "^5.8.1"
   }
 }

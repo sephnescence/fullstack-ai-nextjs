@@ -1,4 +1,4 @@
-import { OpenAI } from 'langchain/llms/openai'
+import { OpenAI } from '@langchain/openai'
 import { PromptTemplate } from 'langchain/prompts'
 import { loadQARefineChain } from 'langchain/chains'
 import { MemoryVectorStore } from 'langchain/vectorstores/memory'
@@ -56,7 +56,7 @@ const getPrompt = async (content) => {
 export const analyzeEntry = async (entry) => {
   const input = await getPrompt(entry.content)
   const model = new OpenAI({ temperature: 0, modelName: 'gpt-3.5-turbo' })
-  const output = await model.call(input)
+  const output = await model.invoke(input)
 
   try {
     return parser.parse(output)
@@ -83,7 +83,7 @@ export const qa = async (question, entries) => {
   const embeddings = new OpenAIEmbeddings()
   const store = await MemoryVectorStore.fromDocuments(docs, embeddings)
   const relevantDocs = await store.similaritySearch(question)
-  const res = await chain.call({
+  const res = await chain.invoke({
     input_documents: relevantDocs,
     question,
   })
