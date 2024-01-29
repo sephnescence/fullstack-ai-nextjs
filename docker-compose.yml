@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  local:
+    build: .
+    command: 'npm run dev -- -p 3002'
+    container_name: local
+    env_file:
+      - .env
+      - .env.local
+    ports:
+      - '3002:3002'
+    volumes:
+      - .:/app
